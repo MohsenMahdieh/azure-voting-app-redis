@@ -31,7 +31,8 @@ kind: Deployment
 metadata:
   name: azure-vote-front
 spec:
-  replicas: 1
+  replicas: 2
+  paused: true
   strategy:
     rollingUpdate:
       maxSurge: 1
@@ -44,7 +45,7 @@ spec:
     spec:
       containers:
       - name: azure-vote-front
-        image: conexxiaacrcluster.azurecr.io/azure-vote-front:v3
+        image: azure-vote-front:v3
         ports:
         - containerPort: 80
         resources:
